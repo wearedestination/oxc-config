@@ -1,0 +1,60 @@
+{
+  "name": "@destination/oxc-config",
+  "version": "0.1.0",
+  "description": "Oxlint and Oxfmt config used by Destination",
+  "keywords": [
+    "oxc",
+    "oxfmt",
+    "oxlint"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearedestination/oxc-config.git"
+  },
+  "files": [
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    "./oxlint": {
+      "types": "./src/oxlint.d.ts",
+      "default": "./src/oxlint.js"
+    },
+    "./oxfmt": {
+      "types": "./src/oxfmt.d.ts",
+      "default": "./src/oxfmt.js"
+    }
+  },
+  "scripts": {
+    "generate": "node scripts/generate.js && oxfmt src/oxlintrc.json",
+    "check": "oxlint && oxfmt --check"
+  },
+  "devDependencies": {
+    "@destination/eslint-config": "^3.2.0",
+    "@oxlint/migrate": "^1.95.0",
+    "eslint": "^10.15.0",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.95.0",
+    "oxlint-tsgolint": "^7.0.2008"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.80.0",
+    "oxlint": ">=1.95.0",
+    "oxlint-tsgolint": "*"
+  },
+  "peerDependenciesMeta": {
+    "oxfmt": {
+      "optional": true
+    },
+    "oxlint": {
+      "optional": true
+    },
+    "oxlint-tsgolint": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
