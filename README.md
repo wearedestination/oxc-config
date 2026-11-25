@@ -63,10 +63,9 @@ export default defineConfig({ ...destination });
 
 Oxfmt has no `extends`, so override options by setting them after the spread.
 
-The config matches [`@destination/prettier-config`](https://github.com/wearedestination/prettier-config) (4-space
-indentation, 120-character lines) and sorts imports into the groups `@destination/eslint-config` enforces with
-`import-x/order`. Oxfmt doesn't format Twig, so projects with Twig templates still need Prettier and
-`@destination/prettier-plugin-twig` for those.
+The config indents with 2 spaces and wraps lines at 120 characters, and sorts imports into the groups
+`@destination/eslint-config` enforces with `import-x/order`. Oxfmt doesn't format Twig, so projects with Twig
+templates still need Prettier and `@destination/prettier-plugin-twig` for those.
 
 ### Running
 
