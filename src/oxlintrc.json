@@ -218,12 +218,19 @@
         "allow": ["warn", "error", "info"]
       }
     ],
+    "no-param-reassign": "error",
     "curly": ["error", "all"],
     "import/namespace": "error",
     "import/default": "error",
     "import/no-named-as-default": "warn",
     "import/no-named-as-default-member": "warn",
     "import/no-duplicates": "warn",
+    "import/no-cycle": [
+      "error",
+      {
+        "ignoreExternal": true
+      }
+    ],
     "typescript/await-thenable": "error",
     "typescript/ban-ts-comment": "error",
     "typescript/no-array-delete": "error",
@@ -264,7 +271,8 @@
     "typescript/restrict-plus-operands": "error",
     "typescript/restrict-template-expressions": "error",
     "typescript/triple-slash-reference": "error",
-    "typescript/unbound-method": "error"
+    "typescript/unbound-method": "error",
+    "typescript/switch-exhaustiveness-check": "error"
   },
   "overrides": [
     {
