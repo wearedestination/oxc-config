@@ -1,6 +1,6 @@
 {
   "name": "@destination/oxc-config",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Oxlint and Oxfmt config used by Destination",
   "keywords": [
     "oxc",
