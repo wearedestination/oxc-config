@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"section"> {
+  heading: string;
+  items?: string[];
+}
+const { heading, items = [], ...attributes } = Astro.props;
+---
+
+<section {...attributes} class="example">
+  <h2>{heading}</h2>
+  <img src="/example.png" alt="" />
+  {items.length > 0 && (
+    <ul>
+      {items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  )}
+</section>
+<script>
+  const section = document.querySelector(".example");
+  section?.classList.add("is-ready");
+</script>
+<style>
+  .example {
+    display: grid;
+    & h2 {
+      margin: 0;
+    }
+  }
+</style>

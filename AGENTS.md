@@ -5,6 +5,7 @@ Follow [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md). Before handing work b
 ```console
 npm run generate
 npm run check
+npm test
 ```
 
 ## Authorship

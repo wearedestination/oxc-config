@@ -22,6 +22,12 @@ npm install @destination/oxc-config oxlint oxlint-tsgolint oxfmt --save-dev
 
 `oxlint-tsgolint` runs the type-aware rules, such as `typescript/no-floating-promises`, and needs a `tsconfig.json`.
 
+Astro projects also need `@astrojs/compiler-rs`, which Oxfmt uses to format `.astro` files:
+
+```console
+npm install @astrojs/compiler-rs --save-dev
+```
+
 ## Usage
 
 ### Oxlint
@@ -64,8 +70,9 @@ export default defineConfig({ ...destination });
 Oxfmt has no `extends`, so override options by setting them after the spread.
 
 The config indents with 2 spaces and wraps lines at 120 characters, and sorts imports into the groups
-`@destination/eslint-config` enforces with `import-x/order`. Oxfmt doesn't format Twig, so projects with Twig
-templates still need Prettier and `@destination/prettier-plugin-twig` for those.
+`@destination/eslint-config` enforces with `import-x/order`. Side-effect imports such as `import "./global.css"` keep
+their place, since moving them can change the CSS cascade. It formats `.astro` files too. Oxfmt doesn't format Twig,
+so projects with Twig templates still need Prettier and `@destination/prettier-plugin-twig` for those.
 
 ### Running
 
