@@ -13,8 +13,8 @@ npm test
 change the rules in `@destination/eslint-config`, bump it here, and run `npm run generate`. CI fails if the committed
 file doesn't match what the generator produces.
 
-Rules that only matter to Oxlint, such as overrides for `.astro` files, which ESLint doesn't lint, are added in
-`scripts/generate.js` after the migration.
+Overrides that only this package applies, such as those for `.astro` files, which ESLint doesn't lint, and for Sanity
+schemas, are added in `scripts/generate.js` after the migration.
 
 The Oxfmt config in `src/oxfmt.js` is written by hand.
 

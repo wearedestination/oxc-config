@@ -305,6 +305,12 @@
       "rules": {
         "unicorn/prefer-module": "off"
       }
+    },
+    {
+      "files": ["**/schemaTypes/**", "**/structure.ts", "**/structure.js"],
+      "rules": {
+        "unicorn/max-nested-calls": "off"
+      }
     }
   ]
 }
