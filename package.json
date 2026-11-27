@@ -29,7 +29,7 @@
   "scripts": {
     "generate": "node scripts/generate.js && oxfmt src/oxlintrc.json",
     "check": "oxlint && oxfmt --check",
-    "test": "oxfmt --check test/fixtures/example.astro"
+    "test": "oxfmt --check test/fixtures/example.astro && oxlint test/fixtures/example.astro"
   },
   "devDependencies": {
     "@astrojs/compiler-rs": "^0.5.3",

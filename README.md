@@ -8,6 +8,9 @@ so both packages enforce the same rules wherever Oxlint supports them. Oxlint do
 config, most of them from `eslint-plugin-unicorn`. Run `npx @oxlint/migrate --details` against the ESLint config to
 list them.
 
+In `.astro` files it turns off `unicorn/prefer-module`, so the frontmatter can `return` early, as in
+`return Astro.rewrite("/404")`.
+
 Oxlint lints only the `<script>` blocks of Vue single-file components, not their templates, so Vue projects should
 keep using [`@destination/eslint-config-vue`](https://github.com/wearedestination/eslint-config-vue). They can still
 use the Oxfmt config.

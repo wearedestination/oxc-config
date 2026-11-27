@@ -13,12 +13,15 @@ npm test
 change the rules in `@destination/eslint-config`, bump it here, and run `npm run generate`. CI fails if the committed
 file doesn't match what the generator produces.
 
+Rules that only matter to Oxlint, such as overrides for `.astro` files, which ESLint doesn't lint, are added in
+`scripts/generate.js` after the migration.
+
 The Oxfmt config in `src/oxfmt.js` is written by hand.
 
-`npm test` checks that the files in `test/fixtures` are formatted with the shared Oxfmt config. The `test` script
-names each fixture, so it fails if the config stops formatting that file type, where a whole-repo check would skip
-it. Add a fixture when the config takes on a new file type and list it in the script. Run `npx oxfmt test/fixtures`
-after changing the config.
+`npm test` checks that the files in `test/fixtures` are formatted with the shared Oxfmt config and pass the shared
+Oxlint config. The `test` script names each fixture, so it fails if the config stops formatting that file type, where a
+whole-repo check would skip it. Add a fixture when the config takes on a new file type and list it in the script. Run
+`npx oxfmt test/fixtures` after changing the config.
 
 ## Pull requests
 
