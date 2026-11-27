@@ -11,6 +11,9 @@ list them.
 In `.astro` files it turns off `unicorn/prefer-module`, so the frontmatter can `return` early, as in
 `return Astro.rewrite("/404")`.
 
+In Sanity schemas (`schemaTypes` directories) and Studio structures (`structure.ts`) it turns off
+`unicorn/max-nested-calls`, since they're built from nested `defineType`, `defineField` and structure builder calls.
+
 Oxlint lints only the `<script>` blocks of Vue single-file components, not their templates, so Vue projects should
 keep using [`@destination/eslint-config-vue`](https://github.com/wearedestination/eslint-config-vue). They can still
 use the Oxfmt config.

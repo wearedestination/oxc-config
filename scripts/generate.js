@@ -23,6 +23,13 @@ config.overrides = [
     files: ["**/*.astro"],
     rules: { "unicorn/prefer-module": "off" },
   },
+  // Sanity schemas and Studio structures are built from nested builder calls,
+  // such as `defineField({ of: [defineArrayMember({ fields: [...] })] })`, where
+  // naming each level only makes them harder to read.
+  {
+    files: ["**/schemaTypes/**", "**/structure.ts", "**/structure.js"],
+    rules: { "unicorn/max-nested-calls": "off" },
+  },
 ];
 
 await writeFile(new URL("../src/oxlintrc.json", import.meta.url), `${JSON.stringify(config, undefined, 4)}\n`);
