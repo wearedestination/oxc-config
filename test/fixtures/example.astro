@@ -5,6 +5,9 @@ interface Props extends HTMLAttributes<"section"> {
   items?: string[];
 }
 const { heading, items = [], ...attributes } = Astro.props;
+if (!heading) {
+  return Astro.rewrite("/404");
+}
 ---
 
 <section {...attributes} class="example">

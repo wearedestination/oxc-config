@@ -14,4 +14,15 @@ const config = await migrate(destinationEslintConfig, undefined, {
 delete config.$schema;
 delete config.settings;
 
+// Astro frontmatter is a module body that can `return` early, such as
+// `return Astro.rewrite("/404")`. ESLint doesn't lint .astro files, so this has
+// no counterpart in @destination/eslint-config.
+config.overrides = [
+  ...(config.overrides ?? []),
+  {
+    files: ["**/*.astro"],
+    rules: { "unicorn/prefer-module": "off" },
+  },
+];
+
 await writeFile(new URL("../src/oxlintrc.json", import.meta.url), `${JSON.stringify(config, undefined, 4)}\n`);
