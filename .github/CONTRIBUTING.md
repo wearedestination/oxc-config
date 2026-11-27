@@ -6,6 +6,7 @@
 npm ci
 npm run generate
 npm run check
+npm test
 ```
 
 `src/oxlintrc.json` is generated from `@destination/eslint-config` by `scripts/generate.js`. Don't edit it by hand:
@@ -13,6 +14,11 @@ change the rules in `@destination/eslint-config`, bump it here, and run `npm run
 file doesn't match what the generator produces.
 
 The Oxfmt config in `src/oxfmt.js` is written by hand.
+
+`npm test` checks that the files in `test/fixtures` are formatted with the shared Oxfmt config. The `test` script
+names each fixture, so it fails if the config stops formatting that file type, where a whole-repo check would skip
+it. Add a fixture when the config takes on a new file type and list it in the script. Run `npx oxfmt test/fixtures`
+after changing the config.
 
 ## Pull requests
 

@@ -35,6 +35,9 @@ jobs:
       - name: Lint and format check
         run: npm run check
 
+      - name: Check the fixtures format with the shared config
+        run: npm test
+
   # Aggregate gate with a stable name for branch protection to require,
   # so jobs can be added or renamed without updating the required-check config.
   ci-success:

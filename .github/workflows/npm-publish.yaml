@@ -36,5 +36,8 @@ jobs:
       - name: Lint and format check
         run: npm run check
 
+      - name: Check the fixtures format with the shared config
+        run: npm test
+
       - name: Publish
         run: npm publish --access=public
